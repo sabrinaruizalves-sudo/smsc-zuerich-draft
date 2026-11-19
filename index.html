@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<script>(function(d){try{var n=navigator,u=n.userAgent||"";if(matchMedia("(hover:none) and (pointer:coarse)").matches||/Android|iPhone|iPad|iPod|Mobi/.test(u)||(n.platform==="MacIntel"&&n.maxTouchPoints>1))d.classList.add("is-touch")}catch(e){}})(document.documentElement)</script>
+<title>Medicine at its Limits — SMSC Zürich 2027</title>
+<meta name="description" content="Student medical conference by students, for students. 9–11 April 2027 in Zürich. Deep Space, Deep Sea, High Altitude, Emergency Medicine.">
+<meta name="theme-color" content="#23022E">
+<link rel="preload" href="assets/fonts/SpaceGrotesk-Variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/Gambetta-Variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="mobile.css">
+</head>
+<body>
+
+<div class="progress" aria-hidden="true"><i id="progressFill"></i></div>
+
+<header class="nav" id="nav">
+  <a class="nav__logo" href="#top" aria-label="SMSC Zürich – top">
+    <img class="logo-light" src="assets/smsclogodunkelblankbackground.svg" alt="SMSC logo">
+    <img class="logo-dark" src="assets/smsclogohell.svg" alt="">
+  </a>
+  <nav class="nav__links" id="navLinks">
+    <a href="#about">About</a>
+    <a href="#program">Program</a>
+    <a href="team.html">Team</a>
+    <a href="#sponsors">Sponsors</a>
+    <a href="#subscribe">Subscription</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <a class="btn btn--small" href="#subscribe">Get updates <span>↗</span></a>
+  <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><i></i><i></i></button>
+</header>
+
+<main id="top">
+<!-- HERO -->
+<section class="hero" id="hero">
+  <video class="hero__video" autoplay muted loop playsinline poster="assets/video/poster.jpg">
+    <source src="assets/video/trailer.mp4" type="video/mp4">
+  </video>
+  <div class="hero__veil"></div>
+  <div class="hero__inner">
+    <p class="mono hero__kicker"><span class="dot"></span> SMSC ZÜRICH 2027 · 36.8 °C · THERMAL / 01</p>
+    <h1 class="hero__title" data-scramble>Meet us at the limit of medicine</h1>
+    <div class="hero__meta">
+      <div>
+        <span class="mono label">When</span>
+        <strong class="hero__big" data-scramble-delay="600">9-11 April</strong>
+      </div>
+      <div>
+        <span class="mono label">Where</span>
+        <strong class="hero__big" data-scramble-delay="900">Zürich</strong>
+      </div>
+    </div>
+  </div>
+  <div class="hero__scroll mono">SCROLL <i></i></div>
+</section>
+
+<!-- INTRO -->
+<section class="intro" id="about">
+  <p class="mono eyebrow reveal">01 — WHO WE ARE</p>
+  <h2 class="intro__lead reveal"><em>Medicine at its Limits</em> explores the boundaries of modern medicine and the challenges of healthcare in extreme environments with a particular emphasis on four key domains:</h2>
+  <ul class="intro__chips reveal">
+    <li>Deep Space</li><li>Deep Sea</li><li>High Altitude</li><li>Emergency Medicine</li>
+  </ul>
+</section>
+
+<!-- DOMAINS -->
+<section class="domains" id="domains">
+  <article class="domain" data-cursor="Deep Space" data-fig="FIG. 01 — DEEP SPACE">
+    <div class="domain__img"><img src="assets/img/space.jpg" alt="Thermal-toned image evoking deep space" loading="lazy"></div>
+    <div class="domain__text">
+      <span class="mono domain__num">01</span>
+      <h3>Deep Space</h3>
+      <p>The human body in weightlessness, radiation and isolation on long missions.</p>
+    </div>
+  </article>
+  <article class="domain domain--flip" data-cursor="Deep Sea" data-fig="FIG. 02 — DEEP SEA">
+    <div class="domain__img"><img src="assets/img/sea.jpg" alt="Thermal-toned image evoking the deep sea" loading="lazy"></div>
+    <div class="domain__text">
+      <span class="mono domain__num">02</span>
+      <h3>Deep Sea</h3>
+      <p>Pressure, cold and isolation: diving medicine under extreme environmental conditions.</p>
+    </div>
+  </article>
+  <article class="domain" data-cursor="High Altitude" data-fig="FIG. 03 — HIGH ALTITUDE">
+    <div class="domain__img"><img src="assets/img/altitude.jpg" alt="Icy texture evoking high altitude" loading="lazy"></div>
+    <div class="domain__text">
+      <span class="mono domain__num">03</span>
+      <h3>High Altitude</h3>
+      <p>Thin air, hypoxia and the limits of acclimatisation, from base camp to the summit.</p>
+    </div>
+  </article>
+  <article class="domain domain--flip" data-cursor="Emergency" data-fig="FIG. 04 — EMERGENCY MEDICINE">
+    <div class="domain__img"><img src="assets/img/emergency.jpg" alt="Thermal image of a masked doctor" loading="lazy"></div>
+    <div class="domain__text">
+      <span class="mono domain__num">04</span>
+      <h3>Emergency Medicine</h3>
+      <p>Decisions made in seconds, when every minute counts.</p>
+    </div>
+  </article>
+</section>
+
+<section class="outro">
+  <p class="reveal">Discover new perspectives, challenge conventional thinking, and expand your understanding of medicine beyond the boundaries of traditional clinical practice. Connect with fellow medical students, engage with leading experts, and explore the research and innovations shaping the future of healthcare.</p>
+</section>
+
+<!-- PAST SMSC SLIDER -->
+<section class="past">
+  <p class="mono eyebrow">PREVIOUSLY AT SMSC · HOVER TO SLOW DOWN</p>
+  <div class="slider" data-speed="55" data-hover-speed="8" id="pastSlider">
+    <div class="slider__track">
+      <figure><img src="assets/img/p1.jpg" alt="Past SMSC"><figcaption class="mono">36.8 °C</figcaption></figure>
+      <figure><img src="assets/img/p2.jpg" alt="Past SMSC"><figcaption class="mono">FIG. 02</figcaption></figure>
+      <figure><img src="assets/img/p3.jpg" alt="Past SMSC"><figcaption class="mono">FIG. 03</figcaption></figure>
+      <figure><img src="assets/img/p4.jpg" alt="Past SMSC"><figcaption class="mono">FIG. 04</figcaption></figure>
+      <figure><img src="assets/img/p5.jpg" alt="Past SMSC"><figcaption class="mono">FIG. 05</figcaption></figure>
+      <figure><img src="assets/img/p6.jpg" alt="Past SMSC"><figcaption class="mono">FIG. 06</figcaption></figure>
+      <figure><img src="assets/img/p7.jpg" alt="Past SMSC"><figcaption class="mono">FIG. 07</figcaption></figure>
+      <figure><img src="assets/img/p8.jpg" alt="Past SMSC"><figcaption class="mono">FIG. 08</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAM -->
+<section class="program" id="program">
+  <div class="program__head">
+    <p class="mono eyebrow">02 — PROGRAM</p>
+    <h2 data-scramble>Three days. Four limits. One crowd.</h2>
+  </div>
+  <div class="cards" id="cards">
+    <button class="card" data-key="talks" aria-haspopup="dialog">
+      <img src="assets/img/talks.png" alt="">
+      <span class="card__label"><small class="mono">01</small>Talks</span>
+      <span class="card__plus" aria-hidden="true">+</span>
+    </button>
+    <button class="card" data-key="workshops" aria-haspopup="dialog">
+      <img src="assets/img/workshops.png" alt="">
+      <span class="card__label"><small class="mono">02</small>Workshops</span>
+      <span class="card__plus" aria-hidden="true">+</span>
+    </button>
+    <button class="card" data-key="fair" aria-haspopup="dialog">
+      <img src="assets/img/fair.png" alt="">
+      <span class="card__label"><small class="mono">03</small>Project Fair</span>
+      <span class="card__plus" aria-hidden="true">+</span>
+    </button>
+    <button class="card" data-key="social" aria-haspopup="dialog">
+      <img src="assets/img/social.png" alt="">
+      <span class="card__label"><small class="mono">04</small>Social Program</span>
+      <span class="card__plus" aria-hidden="true">+</span>
+    </button>
+  </div>
+</section>
+
+<!-- SPONSORS -->
+<section class="sponsors" id="sponsors">
+  <p class="mono eyebrow">03 — PARTNERS &amp; SUPPORTERS</p>
+  <h2>Thank you to our sponsors</h2>
+  <div class="slider slider--sponsors" data-speed="40" data-hover-speed="40">
+    <div class="slider__track">
+      <span class="sponsor">[LOGO]</span><span class="sponsor">[LOGO]</span><span class="sponsor">[LOGO]</span>
+      <span class="sponsor">[LOGO]</span><span class="sponsor">[LOGO]</span><span class="sponsor">[LOGO]</span>
+    </div>
+  </div>
+</section>
+
+<!-- SUBSCRIBE -->
+<section class="subscribe" id="subscribe">
+  <div>
+    <p class="mono eyebrow">04 — SUBSCRIPTION</p>
+    <h2>Be first at the edge.</h2>
+    <p>Registration, speaker reveals and early-bird news, straight to your inbox.</p>
+  </div>
+  <form class="subscribe__form" id="subForm">
+    <label class="sr" for="email">Email</label>
+    <input id="email" type="email" required placeholder="you@uzh.ch">
+    <button class="btn" type="submit">Subscribe <span>↗</span></button>
+    <p class="mono subscribe__ok" id="subOk" hidden>THANKS — YOU'RE ON THE LIST.</p>
+  </form>
+</section>
+</main>
+
+<footer class="footer" id="contact">
+  <div class="footer__top">
+    <img src="assets/smsclogodunkelblankbackground.svg" alt="SMSC logo" class="footer__logo">
+    <div class="footer__cols">
+      <nav>
+        <h4 class="mono">Explore</h4>
+        <a href="#about">About</a><a href="#program">Program</a><a href="team.html">Team</a><a href="#sponsors">Sponsors</a><a href="#subscribe">Subscription</a>
+      </nav>
+      <nav>
+        <h4 class="mono">Contact</h4>
+        <a href="mailto:info@smsc-zurich.ch">info@smsc-zurich.ch</a>
+        <a href="legal.html#imprint">Imprint</a><a href="legal.html#disclaimer">Legal</a><a href="legal.html#privacy">Privacy</a>
+      </nav>
+      <nav>
+        <h4 class="mono">Follow</h4>
+        <a href="https://www.instagram.com/smsc_swimsa/" target="_blank" rel="noopener">Instagram ↗</a>
+        <a href="https://ch.linkedin.com/in/smscbern" target="_blank" rel="noopener">LinkedIn ↗</a>
+      </nav>
+    </div>
+  </div>
+  <div class="footer__bottom mono">
+    <span>© 2027 SMSC ZÜRICH · NON-PROFIT STUDENT ASSOCIATION</span>
+    <span>9-11 APRIL · ZÜRICH</span>
+  </div>
+</footer>
+
+<!-- cursor -->
+<div class="cursor" id="cursor"><span id="cursorLabel"></span><i>↗</i></div>
+
+<!-- dialog -->
+<div class="mdialog" id="mdialog" hidden>
+  <div class="mdialog__backdrop"></div>
+  <div class="mdialog__panel" role="dialog" aria-modal="true" aria-labelledby="mdTitle">
+    <img id="mdImg" alt="">
+    <div class="mdialog__body">
+      <p class="mono" id="mdKicker"></p>
+      <h3 id="mdTitle"></h3>
+      <p id="mdText"></p>
+      <ul id="mdList" class="mono"></ul>
+    </div>
+    <button class="mdialog__close" id="mdClose" aria-label="Close">×</button>
+  </div>
+</div>
+
+<script src="main.js"></script>
+<script src="mobile.js"></script>
+</body>
+</html>

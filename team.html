@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<script>(function(d){try{var n=navigator,u=n.userAgent||"";if(matchMedia("(hover:none) and (pointer:coarse)").matches||/Android|iPhone|iPad|iPod|Mobi/.test(u)||(n.platform==="MacIntel"&&n.maxTouchPoints>1))d.classList.add("is-touch")}catch(e){}})(document.documentElement)</script>
+<title>Team — SMSC Zürich 2027</title>
+<meta name="description" content="Meet the students organising Medicine at its Limits, SMSC Zürich 2027.">
+<meta name="theme-color" content="#23022E">
+<link rel="preload" href="assets/fonts/SpaceGrotesk-Variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/Gambetta-Variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="mobile.css">
+<link rel="stylesheet" href="page.css">
+</head>
+<body>
+
+<div class="progress" aria-hidden="true"><i id="progressFill"></i></div>
+
+<header class="nav" id="nav">
+  <a class="nav__logo" href="index.html" aria-label="SMSC Zürich – home">
+    <img class="logo-light" src="assets/smsclogodunkelblankbackground.svg" alt="SMSC logo">
+    <img class="logo-dark" src="assets/smsclogohell.svg" alt="">
+  </a>
+  <nav class="nav__links" id="navLinks">
+    <a href="index.html#about">About</a>
+    <a href="index.html#program">Program</a>
+    <a href="team.html" aria-current="page">Team</a>
+    <a href="index.html#sponsors">Sponsors</a>
+    <a href="index.html#subscribe">Subscription</a>
+    <a href="index.html#contact">Contact</a>
+  </nav>
+  <a class="btn btn--small" href="index.html#subscribe">Get updates <span>↗</span></a>
+  <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><i></i><i></i></button>
+</header>
+
+<main id="top">
+<section class="page-head">
+  <div class="page-head__in">
+    <p class="mono eyebrow">THE TEAM</p>
+    <h1 data-scramble>The people behind the limit</h1>
+    <p class="page-head__lead">Medical students, by students, for students. Tap a card to get to know us.</p>
+  </div>
+</section>
+
+<section class="team">
+  <div class="cards cards--team" id="teamCards"><!-- rendered by team.js from the TEAM list --></div>
+  <noscript><p class="mono">Please enable JavaScript to see the team.</p></noscript>
+</section>
+</main>
+
+<footer class="footer" id="contact">
+  <div class="footer__top">
+    <a href="index.html"><img src="assets/smsclogodunkelblankbackground.svg" alt="SMSC logo" class="footer__logo"></a>
+    <div class="footer__cols">
+      <nav>
+        <h4 class="mono">Explore</h4>
+        <a href="index.html#about">About</a><a href="index.html#program">Program</a><a href="team.html">Team</a><a href="index.html#sponsors">Sponsors</a><a href="index.html#subscribe">Subscription</a>
+      </nav>
+      <nav>
+        <h4 class="mono">Contact</h4>
+        <a href="mailto:info@smsc-zurich.ch">info@smsc-zurich.ch</a>
+        <a href="legal.html#imprint">Imprint</a><a href="legal.html#disclaimer">Legal</a><a href="legal.html#privacy">Privacy</a>
+      </nav>
+      <nav>
+        <h4 class="mono">Follow</h4>
+        <a href="https://www.instagram.com/smsc_swimsa/" target="_blank" rel="noopener">Instagram ↗</a>
+        <a href="https://ch.linkedin.com/in/smscbern" target="_blank" rel="noopener">LinkedIn ↗</a>
+      </nav>
+    </div>
+  </div>
+  <div class="footer__bottom mono">
+    <span>© 2027 SMSC ZÜRICH · NON-PROFIT STUDENT ASSOCIATION</span>
+    <span>9-11 APRIL · ZÜRICH</span>
+  </div>
+</footer>
+
+<div class="mdialog" id="mdialog" hidden>
+  <div class="mdialog__backdrop"></div>
+  <div class="mdialog__panel" role="dialog" aria-modal="true" aria-labelledby="mdTitle">
+    <img id="mdImg" alt="">
+    <div class="mdialog__body">
+      <p class="mono" id="mdKicker"></p>
+      <h3 id="mdTitle"></h3>
+      <p id="mdText"></p>
+      <ul id="mdList" class="mono"></ul>
+    </div>
+    <button class="mdialog__close" id="mdClose" aria-label="Close">×</button>
+  </div>
+</div>
+
+<script src="page.js"></script>
+<script src="team.js"></script>
+<script src="mobile.js"></script>
+</body>
+</html>

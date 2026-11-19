@@ -1,0 +1,133 @@
+/* =====================================================================
+   Mobile / touch layer. Loaded AFTER style.css on every page.
+   Everything that changes the look is scoped to html.is-touch (set by the
+   inline script in <head> for phones & tablets), so desktop is untouched.
+   The only unscoped rules are @supports fallbacks for old browsers and
+   bug fixes that only matter at <=900px.
+   ===================================================================== */
+
+/* ---------- fallbacks for older WebKit (no-ops on modern browsers) ---------- */
+@supports not (inset:0){
+  .nav{top:0;left:0;right:0}
+  .hero__video{top:-6%;left:-6%}
+  .hero__veil,.card img,.card::after,.mdialog,.mdialog__backdrop{top:0;right:0;bottom:0;left:0}
+}
+@supports not (aspect-ratio:1/1){
+  .card{height:0;padding-bottom:133.33%}
+  .domain__img{height:0;padding-bottom:75%}
+  .domain__img img{position:absolute;top:0;left:0}
+}
+
+/* ---------- bug fix (<=900px): backdrop-filter makes the nav a containing block,
+   which squashed the fullscreen menu into the 90px bar once the page was scrolled ---------- */
+@media (max-width:900px){
+  .nav.menu-open{-webkit-backdrop-filter:none;backdrop-filter:none;background:transparent;box-shadow:none;transition:color .4s}
+  /* ...and while closed, its overflowing links peeked out under the solid bar */
+  .nav:not(.menu-open) .nav__links{visibility:hidden;pointer-events:none;transition:transform .5s cubic-bezier(.2,.8,.2,1),visibility 0s .5s}
+  .nav.menu-open .nav__links{visibility:visible}
+}
+
+/* ---------- touch devices ---------- */
+html.is-touch{-webkit-tap-highlight-color:transparent}
+html.is-touch body{overflow-x:hidden;overscroll-behavior-y:none}
+html.is-touch.menu-lock,html.is-touch.menu-lock body{overflow:hidden}
+
+/* notch / home-indicator safe areas */
+html.is-touch .nav{padding-left:max(var(--pad),env(safe-area-inset-left));padding-right:max(var(--pad),env(safe-area-inset-right))}
+html.is-touch .footer{padding-bottom:calc(28px + env(safe-area-inset-bottom))}
+
+/* nav: smaller logo, bigger tap target */
+html.is-touch .nav{gap:1rem}
+html.is-touch .nav__logo img{height:62px}
+html.is-touch .burger{width:48px;height:48px;margin-right:-8px}
+html.is-touch .burger i{left:11px;right:11px}
+html.is-touch .burger i:first-child{top:18px}
+html.is-touch .burger i:last-child{top:28px}
+html.is-touch .burger[aria-expanded=true] i:first-child{transform:translateY(5px) rotate(45deg)}
+html.is-touch .burger[aria-expanded=true] i:last-child{transform:translateY(-5px) rotate(-45deg)}
+html.is-touch .nav__links a{padding:10px 0}
+
+/* sticky :hover on touch: neutralise lifts/zooms that would "stick" after a tap */
+@media (hover:none){
+  .card:hover{transform:none}
+  .card:hover img{transform:none}
+  .card:hover .card__plus{transform:none}
+  .btn:hover{transform:none;background:var(--indigo)}
+  .nav:not(.is-solid) .btn--small:hover{background:var(--chartreuse)}
+  .subscribe .btn:hover{background:var(--chartreuse)}
+  .btn:hover span{transform:none}
+  .intro__chips li:hover{background:transparent;color:inherit}
+  .nav__links a:hover::after{transform:scaleX(0)}
+  .footer nav a:hover{transform:none}
+}
+
+/* hero */
+html.is-touch .hero__kicker{font-size:.7rem;line-height:1.5;align-items:flex-start}
+html.is-touch .hero__kicker .dot{margin-top:.35em;flex:none}
+html.is-touch .hero__inner{padding-bottom:calc(56px + env(safe-area-inset-bottom));will-change:transform,opacity}
+html.is-touch .hero__video{will-change:transform;-webkit-transform:translateZ(0);transform:translateZ(0) scale(var(--hs,1))}
+
+/* intro / typography */
+html.is-touch .intro{padding-top:clamp(64px,16vw,120px)}
+html.is-touch .intro__chips li{font-size:.95rem;padding:.5rem 1rem}
+
+/* domains: scroll-driven parallax instead of hover zoom + cursor chip */
+html.is-touch .domain__img{cursor:auto;border-radius:22px}
+html.is-touch .domain__img img{transform:translate3d(0,var(--py,0px),0) scale(1.16);transition:none;will-change:transform}
+html.is-touch .domain__img::after{content:attr(data-label);position:absolute;left:12px;bottom:12px;z-index:2;padding:.45rem .8rem;border-radius:999px;background:var(--chartreuse);color:var(--amethyst);font-family:var(--mono);font-weight:600;font-size:.68rem;letter-spacing:.08em;text-transform:uppercase}
+html.is-touch .domain.reveal-in .domain__text{animation:none}
+html.is-touch .domains{gap:clamp(2.5rem,10vw,4rem)}
+html.is-touch .cursor{display:none}
+
+/* touch-friendly scroll reveal for elements that have no .reveal class on desktop */
+html.is-touch .t-reveal{opacity:0;transform:translateY(28px);transition:opacity .8s cubic-bezier(.2,.8,.2,1),transform .8s cubic-bezier(.2,.8,.2,1);transition-delay:var(--d,0s)}
+html.is-touch .t-reveal.in{opacity:1;transform:none}
+
+/* sliders: native swipe (momentum) + gentle auto-drift driven by mobile.js */
+html.is-touch .slider{overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain;scrollbar-width:none;touch-action:pan-x pan-y}
+html.is-touch .slider::-webkit-scrollbar{display:none}
+html.is-touch .slider__track{gap:0;transform:none!important;will-change:auto}
+html.is-touch .slider__track>*{margin-right:1.1rem}
+html.is-touch .slider--sponsors .slider__track>*{margin-right:.9rem}
+html.is-touch .slider figure{height:clamp(250px,70vw,380px);border-radius:18px;-webkit-transform:translateZ(0)}
+/* explicit sizing: WebKit resolves `width:auto` images inside flex items unreliably */
+html.is-touch .slider figure img{width:100%;height:100%;max-width:none;object-fit:cover}
+html.is-touch .sponsor{width:clamp(160px,46vw,240px);height:96px}
+
+/* program cards -> swipeable, snapping carousel on phones */
+@media (max-width:700px){
+  html.is-touch .cards{display:flex;gap:.9rem;margin-left:calc(-1 * var(--pad));margin-right:calc(-1 * var(--pad));padding:0 var(--pad) 1rem;overflow-x:auto;-webkit-overflow-scrolling:touch;scroll-snap-type:x mandatory;scroll-padding:0 var(--pad);scrollbar-width:none}
+  html.is-touch .cards::-webkit-scrollbar{display:none}
+  html.is-touch .card{flex:0 0 74%;scroll-snap-align:start;min-width:0}
+  html.is-touch .card__label{font-size:1.5rem}
+}
+@media (min-width:701px) and (max-width:900px){
+  html.is-touch .card__label{font-size:1.4rem}
+}
+html.is-touch .card:active{transform:scale(.985)}
+html.is-touch .card__plus{width:48px;height:48px}
+
+/* dialog -> bottom sheet on phones */
+@media (max-width:700px){
+  html.is-touch .mdialog{padding:0;place-items:end center}
+  html.is-touch .mdialog__panel{width:100%;max-height:92vh;max-height:92dvh;border-radius:28px 28px 0 0;padding-bottom:env(safe-area-inset-bottom)}
+  html.is-touch .mdialog__panel img{height:200px}
+  html.is-touch .mdialog__panel::before{content:"";position:absolute;z-index:3;left:50%;top:8px;width:44px;height:5px;margin-left:-22px;border-radius:3px;background:rgba(248,248,248,.85);box-shadow:0 0 0 1px rgba(35,2,46,.15)}
+  html.is-touch .mdialog__close{width:46px;height:46px;top:16px;right:16px;z-index:4}
+  html.is-touch .mdialog__body p:not(.mono){font-size:1.1rem}
+}
+
+/* subscribe */
+html.is-touch .subscribe{border-radius:26px}
+html.is-touch .subscribe__form input{font-size:16px}   /* >=16px stops iOS from zooming on focus */
+html.is-touch .subscribe__form .btn{flex:1 1 100%;justify-content:center;padding:1rem 1.4rem}
+
+/* footer */
+html.is-touch .footer__logo{height:110px}
+html.is-touch .footer nav a{padding:.2rem 0}
+
+/* page-head & team / legal (see page.css) are responsive on their own */
+@media (prefers-reduced-motion:reduce){
+  html.is-touch .domain__img img{transform:scale(1.16)}
+  html.is-touch .t-reveal{opacity:1;transform:none}
+}
